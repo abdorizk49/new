@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { Card, Col, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import jsonData from '../../../public/data/phones-api.json'
 
 function Product() {
+    const [data, setData] = useState(null)
+    console.log(data)
     const [products, setProducts]= useState()
 
     const productsUrl = "http://localhost:9000/products";
     useEffect(() => {
         getAllProducts();
+        setData(jsonData)
     }, []);
   
     const getAllProducts = () => {

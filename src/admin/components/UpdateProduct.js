@@ -14,6 +14,7 @@ function UpdateProduct() {
   const [category, setCategory] = useState("");
   const [count, setCount] = useState(0);
   const [categoriesData, setcategoriesData] = useState();
+  console.log(setcategoriesData);
   let navigate = useNavigate();
 
   const formSubmit = (e) => {

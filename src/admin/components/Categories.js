@@ -6,7 +6,7 @@ import '../../style.scss'
 
 function Categories(){
     const [categories, setCategories] = useState()
-    const categoriesUrl = 'http://localhost:9000/categories'
+    const categoriesUrl = 'https://raw.githubusercontent.com/abdorizk49/new/main/categories.json'
     useEffect(() => {
         getAllCategories();
     }, [])

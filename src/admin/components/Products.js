@@ -6,7 +6,7 @@ import '../../style.scss'
 
 function Products(){
     const [products, setProducts] = useState()
-    const productsUrl = 'http://localhost:9000/products'
+    const productsUrl = 'https://raw.githubusercontent.com/abdorizk49/new/main/products.json'
     useEffect(() => {
         getAllProducts();
     }, [])

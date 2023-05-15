@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../../style.scss";
 
 function UpdateProduct() {
-  const productsUrl = "http://localhost:9000/products";
+  const productsUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/products.json";
   let { productId } = useParams();
   const [name, setName] = useState("");
   const [image, setImage] = useState("");

@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import "../../style.scss";
 
 function AddProduct() {
-  const productsUrl = "http://localhost:9000/products";
-  const categoriesUrl = "http://localhost:9000/categories";
+  const productsUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/products.json";
+  const categoriesUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/categories.json";
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState(0);

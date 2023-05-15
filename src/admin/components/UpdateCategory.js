@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import '../../style.scss'
 
 function UpdateCategory(){
-    const categoriesUrl = 'http://localhost:9000/categories'
+    const categoriesUrl = 'https://raw.githubusercontent.com/abdorizk49/new/main/categories.json'
     let {productId} = useParams()
     const [name , setName] = useState('')
     let navigate = useNavigate();

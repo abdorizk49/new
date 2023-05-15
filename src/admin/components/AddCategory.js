@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import '../../style.scss'
 
 function AddCategory() {
-  const categoriesUrl = "http://localhost:9000/categories";
+  const categoriesUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/categories.json";
   const [name, setName] = useState("");
   let navigate = useNavigate();
   const formSubmit = (e) => {

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 // import Products from "../components/Products";
 
 function ProductDetailsPage(){
-    const api_url = "http://localhost:9000/products";
+    const api_url = "https://raw.githubusercontent.com/abdorizk49/new/main/products.json";
     const [product, setProduct] = useState([]);
     const params = useParams();
     const getProduct = () => {

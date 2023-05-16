@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import ProductDetails from "../components/ProductDetails";
 import { useParams } from "react-router-dom";
+import {products} from "../api/API"
 
 function ProductDetailsPage(){
     const api_url = "https://646345827a9eead6fae1a476.mockapi.io/products";
-    const [product, setProduct] = useState([]);
+    const [products, setProducts] = useState([]);
     const {productId} = useParams();
     const getProduct = () => {
-        fetch(`${api_url}/${productId}`)
+        fetch(`${products}/${productId}`)
         .then((res) => res.json())
-        .then((data) => setProduct(data));
+        .then((data) => {
+            setProducts(data)
+            console.log(data)
+        })
     }
     
 
@@ -20,7 +24,7 @@ function ProductDetailsPage(){
 
     return(
         <>
-            <ProductDetails  product={product} />
+            <ProductDetails  product={products} />
         </>
     )
 }

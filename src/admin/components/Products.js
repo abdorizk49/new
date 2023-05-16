@@ -1,23 +1,24 @@
 import { Button, Container, Image, Table } from "react-bootstrap";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import '../../style.scss'
+import { products } from "../../api/API"
 
 function Products(){
-    const [products, setProducts] = useState()
-    const productsUrl = 'https://raw.githubusercontent.com/abdorizk49/new/main/products.json'
-    useEffect(() => {
-        getAllProducts();
-    }, [])
+    // const [products, setProducts] = useState()
+    // const productsUrl = 'http://localhost:9000/products'
+    // useEffect(() => {
+    //     getAllProducts();
+    // }, [])
 
-    const getAllProducts = () => {
-        fetch(productsUrl)
-        .then((res) => res.json())
-        .then((data) => {
-            setProducts(data)
-        })
-    }
+    // const getAllProducts = () => {
+    //     fetch(productsUrl)
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         setProducts(data)
+    //     })
+    // }
 
     const deleteProduct = (product) => {
         Swal.fire({
@@ -25,11 +26,11 @@ function Products(){
             showCancelButton: true
         }).then((data) => {
             if(data.isConfirmed){
-                fetch(`${productsUrl}/${product.id}`, {
+                fetch(`${products}/${product.id}`, {
                     method: "DELETE"
                 }).then((res)=> (res).json())
                 .then((data) => {
-                    getAllProducts(data);
+                    products(data);
                 })
             }
         })

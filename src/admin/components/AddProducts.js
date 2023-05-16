@@ -1,13 +1,14 @@
 import { Button, Col, Container, Form, InputGroup } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
+import {products, categories} from "../../api/API"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../style.scss";
 
 function AddProduct() {
-  const productsUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/products.json";
-  const categoriesUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/categories.json";
+  // const productsUrl = "http://localhost:9000/products";
+  // const categoriesUrl = "http://localhost:9000/categories";
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState(0);
@@ -15,25 +16,25 @@ function AddProduct() {
   const [category, setCategory] = useState("");
   const [count, setCount] = useState(0);
   let navigate = useNavigate();
-  const [categoriesData, setcategoriesData] = useState();
+  // const [categoriesData, setcategoriesData] = useState();
 
-  useEffect(() => {
-    getAllCategories();
-  }, []);
+  // useEffect(() => {
+  //   getAllCategories();
+  // }, []);
 
-  const getAllCategories = () => {
-    fetch(categoriesUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setcategoriesData(data);
-      });
-  };
+  // const getAllCategories = () => {
+  //   fetch(categoriesUrl)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setcategoriesData(data);
+  //     });
+  // };
 
   const formSubmit = (e) => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: productsUrl,
+      url: products,
       data: {
         name,
         image,
@@ -48,7 +49,7 @@ function AddProduct() {
     });
   };
 
-  const dataList = categoriesData?.map((category) => {
+  const dataList = categories?.map((category) => {
     return (
       <option value={category.name} key={category.id}>
         {category.name}

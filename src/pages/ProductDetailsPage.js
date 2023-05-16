@@ -1,24 +1,45 @@
 import { useEffect, useState } from "react";
 import ProductDetails from "../components/ProductDetails";
-import { useParams } from "react-router-dom";
-// import Products from "../components/Products";
+// import { useParams } from "react-router-dom";
+import "../api/Data.json"
 
-function ProductDetailsPage(){
-    const api_url = "https://raw.githubusercontent.com/abdorizk49/new/main/products.json";
-    const [product, setProduct] = useState([]);
-    const params = useParams();
-    const getProduct = () => {
-        fetch(`${api_url}/${params.productId}`)
-        .then((res) => res.json())
-        .then((data) => setProduct(data));
-    }
+function ProductDetailsPage({productId}){
+    // const api_url = "../api/Data.json/products";
+    // const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState(null);
+    // const {productId} = useParams();
+    // const getProduct = () => {
+    //     fetch(`${api_url}/${productId}`)
+    //     .then((res) => res.json())
+    //     .then((data) => setProduct(data));
+    // }
+    
+
+    // useEffect(() => {
+    //     getProduct();
+    // }, []);
+
     useEffect(() => {
-        getProduct();
-    }, []);
+        const fetchProduct = async () => {
+          try {
+            // Simulating fetching data from a local file
+            const response = await fetch('../api/Data.json');
+            const data = await response.json();
+            console.log(response);
+            // Find the product with the matching ID
+            const product = data.products.find((p) => p.id === productId);
+            setProduct(product);
+          } catch (error) {
+            console.error('Error fetching product:', error);
+          }
+        };
+    
+        fetchProduct();
+      }, [productId]);
+
     return(
         <>
             <ProductDetails  product={product} />
-            {/* <Products homePage={true} /> */}
         </>
     )
 }

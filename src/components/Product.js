@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Card, Col, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {products} from "../api/API"
 
 function Product() {
-    const [products, setProducts]= useState();
-    const productsUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/phones-api.json";
+    // const [products, setProducts]= useState();
+    // const productsUrl = "http://localhost:9000/products";
 
     // useEffect(() => {
     //     getAllProducts();
@@ -17,20 +18,6 @@ function Product() {
     //         setProducts(data);
     //     });
     // };
-    useEffect(() => {
-      const fetchProduct = async () => {
-        try {
-          const response = await fetch(productsUrl); // Replace with the actual path to your JSON file or API endpoint
-          const data = await response.json();
-          const fetchedProduct = data.products.find((product) => product.id === 1);
-          setProducts(fetchedProduct);
-        } catch (error) {
-          console.error('Error fetching product:', error);
-        }
-      };
-  
-      fetchProduct();
-    }, []);
 
     if (!products) {
         return (

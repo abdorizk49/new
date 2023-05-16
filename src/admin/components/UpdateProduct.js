@@ -3,9 +3,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "../../style.scss";
+import {products} from "../../api/API"
 
 function UpdateProduct() {
-  const productsUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/products.json";
+  // const productsUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/products.json";
   let { productId } = useParams();
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -21,7 +22,7 @@ function UpdateProduct() {
     e.preventDefault();
     axios({
       method: "PUT",
-      url: `${productsUrl}/${productId}`,
+      url: `${products}/${productId}`,
       data: {
         name,
         image,

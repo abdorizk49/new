@@ -1,23 +1,24 @@
 import { Button, Container, Table } from "react-bootstrap";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import '../../style.scss'
+import { categories} from "../../api/API"
 
 function Categories(){
-    const [categories, setCategories] = useState()
-    const categoriesUrl = 'https://raw.githubusercontent.com/abdorizk49/new/main/categories.json'
-    useEffect(() => {
-        getAllCategories();
-    }, [])
+    // const [categories, setCategories] = useState()
+    // const categoriesUrl = 'http://localhost:9000/categories'
+    // useEffect(() => {
+    //     getAllCategories();
+    // }, [])
 
-    const getAllCategories = () => {
-        fetch(categoriesUrl)
-        .then((res) => res.json())
-        .then((data) => {
-            setCategories(data)
-        })
-    }
+    // const getAllCategories = () => {
+    //     fetch(categoriesUrl)
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         setCategories(data)
+    //     })
+    // }
 
     const deleteCategory = (category) => {
         Swal.fire({
@@ -25,11 +26,11 @@ function Categories(){
             showCancelButton: true
         }).then((data) => {
             if(data.isConfirmed){
-                fetch(`${categoriesUrl}/${category.id}`, {
+                fetch(`${categories}/${category.id}`, {
                     method: "DELETE"
                 }).then((res)=> (res).json())
                 .then((data) => {
-                    getAllCategories(data);
+                    categories(data);
                 })
             }
         })

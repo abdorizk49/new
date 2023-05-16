@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Card, Col, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {products} from "../api/API"
 
 function AllProducts() {
-  const [products, setProducts] = useState();
+  // const [products, setProducts] = useState();
 
-  const productsUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/products.json";
-  useEffect(() => {
-    getAllProducts();
-  }, []);
+  // const productsUrl = "https://api.jsonbin.io/v3/b/646245009d312622a35ec3ce";
+  // useEffect(() => {
+  //   getAllProducts();
+  // }, []);
 
-  const getAllProducts = () => {
-    fetch(productsUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-      });
-  };
+  // const getAllProducts = () => {
+  //   fetch(productsUrl)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setProducts(data);
+  //     });
+  // };
 
   if (!products) {
     return (

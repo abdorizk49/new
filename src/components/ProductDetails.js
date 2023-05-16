@@ -22,40 +22,6 @@ function ProductDetails(props){
         return acc;
     }, 0);
   
-    // const wishlistsUrl = 'http://localhost:9000/wishlists'
-    // const [name , setName] = useState('')
-    // const [image , setImage] = useState('')
-    // const [price , setPrice] = useState('')
-    // const [wishlistsData, setWishlistsData] = useState()
-
-    // useEffect(() => {
-    //     getAllWishlists();
-    // }, [])
-
-    // const getAllWishlists = () => {
-    //     fetch(wishlistsUrl)
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         setWishlistsData(data)
-    //     })
-    // }
-
-
-    // const addWishlist = (e) => {
-    //     e.preventDefault();
-    //     axios({
-    //         method: 'POST',
-    //         url: wishlistsUrl,
-    //         data: {
-    //             name: product.name,
-    //             image: product.image,
-    //             price: product.price
-    //         }
-    //     })
-    //     .then((data) => {
-    //         console.log(data);
-    //     })
-    // }
 
 
     return(

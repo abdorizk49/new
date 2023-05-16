@@ -3,16 +3,17 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import '../../style.scss'
+import { categories} from "../../api/API"
 
 function AddCategory() {
-  const categoriesUrl = "https://raw.githubusercontent.com/abdorizk49/new/main/categories.json";
+  // const categoriesUrl = "http://localhost:9000/categories";
   const [name, setName] = useState("");
   let navigate = useNavigate();
   const formSubmit = (e) => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: categoriesUrl,
+      url: categories,
       data: {
         name,
       },

@@ -3,9 +3,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import '../../style.scss'
+import {categories} from "../../api/API"
 
 function UpdateCategory(){
-    const categoriesUrl = 'https://raw.githubusercontent.com/abdorizk49/new/main/categories.json'
+    // const categoriesUrl = 'http://localhost:9000/categories'
     let {productId} = useParams()
     const [name , setName] = useState('')
     let navigate = useNavigate();
@@ -16,7 +17,7 @@ function UpdateCategory(){
         e.preventDefault();
         axios({
           method: "PUT",
-          url: `${categoriesUrl}/${productId}`,
+          url: `${categories}/${productId}`,
           data: {
             name
           },

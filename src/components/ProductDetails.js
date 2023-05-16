@@ -12,9 +12,9 @@ import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function ProductDetails(props){
     const { product } = props;
-    const products = useSelector((state) => state.products);
+    // const products = useSelector((state) => state.products);
     const cart = useSelector((state) => state.cart);
-    console.log(products);
+    // console.log(product);
     const dispatch = useDispatch();
 
     const quantity = cart.reduce((acc, product) => {
